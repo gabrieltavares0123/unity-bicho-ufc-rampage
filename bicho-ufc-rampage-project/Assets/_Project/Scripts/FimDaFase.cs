@@ -20,7 +20,6 @@ public class FimDaFase : MonoBehaviour {
 			ControleDeTempo.SendMessage ("Parar");
 			float tempo = ControleDeTempo.GetInstance ().GetTempo ();
 			int score = ControleDeScore.GetInstance ().GetScore ();
-			SalvarRecuperarRanking.Salvar ("Gabs", tempo, score);
 		}
 	}
 }
