@@ -7,7 +7,6 @@ namespace Magrathea.BichoUFCRampage.Controls
     public class RightMover : MonoBehaviour, IMovableRight
     {
         private Rigidbody2D _rigidbody2D;
-        private int frame;
 
         public float Speed
         {
