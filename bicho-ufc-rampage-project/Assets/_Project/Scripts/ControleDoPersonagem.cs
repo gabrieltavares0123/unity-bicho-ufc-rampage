@@ -1,6 +1,4 @@
 ﻿using Magrathea.BichoUFCRampage.Controls;
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -23,8 +21,10 @@ public class ControleDoPersonagem : MonoBehaviour {
 	private bool dash = false;
 	private bool a = false, d = false, p = false;
 
-    [SerializeField] private float speed;
+    [SerializeField] private float rightSpeed;
+    [SerializeField] private float jumpForce;
     private IMovableRight _rightMover;
+    private IJumpable _jumpper;
 
 	void Awake () {
 		this.rb2d = GetComponent <Rigidbody2D> ();
@@ -32,7 +32,9 @@ public class ControleDoPersonagem : MonoBehaviour {
 		textoDash.enabled = false;
 
         _rightMover = GetComponent<RightMover>();
-        _rightMover.Speed = speed;
+        _rightMover.Speed = rightSpeed;
+        _jumpper = GetComponent<Jumpper>();
+        _jumpper.Force = jumpForce;
 	}
 
 	/*
@@ -77,7 +79,7 @@ public class ControleDoPersonagem : MonoBehaviour {
 			// Pulo
 			if (this.p) {
 				if (this.podePular) {
-					Pular ();
+					_jumpper.JumpNow();
 					this.p = false;
 				}
 			}
