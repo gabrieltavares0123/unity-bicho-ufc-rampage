@@ -2,7 +2,7 @@
 using UnityEngine;
 using UnityEngine.UI;
 
-public class ControleDoPersonagem : MonoBehaviour {
+public class ControlsManager : MonoBehaviour {
 
 	public Vector2 velocidadePersonagem;// Força de movimento em X e Y
 	public Vector2 velocidadeDash;// velocidades do dash em x e y
@@ -60,7 +60,7 @@ public class ControleDoPersonagem : MonoBehaviour {
 	}
 
 	void FixedUpdate () {
-		
+		// Desnecessário depois do GroundChecker
 		this.anim.SetFloat ("Correndo", Mathf.Abs (this.rb2d.velocity.x));
 
 		if (!this.parar) {
@@ -86,7 +86,7 @@ public class ControleDoPersonagem : MonoBehaviour {
 		}
 	}
 
-	// Movimento do boneco
+	// Desnecessário depois do RightMover
 	void Mover () {
 		if (!moverNoAr && !podePular){
 			return;
@@ -99,7 +99,7 @@ public class ControleDoPersonagem : MonoBehaviour {
 		Debug.Log ("Moveu");
 	}
 
-	// Salto do boneco
+	// Desnecessário depois do Jumpper
 	void Pular () {
 		if (this.dash) {
 			this.rb2d.velocity = new Vector2 (velocidadeDash.x, Vector2.up.y * velocidadeDash.y);

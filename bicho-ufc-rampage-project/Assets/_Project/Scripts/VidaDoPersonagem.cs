@@ -7,12 +7,12 @@ public class VidaDoPersonagem : MonoBehaviour {
 	public CanvasRenderer panelMorreu;
 	public ControleDaCamera controleDaCamera;
 	public ControleDeTempo controleDeTempo;
-	private ControleDoPersonagem cp;
+	private ControlsManager cp;
 	public Transform cam;
 
 	void Awake () {
 		panelMorreu.gameObject.SetActive (false);
-		cp = GetComponent <ControleDoPersonagem> ();
+		cp = GetComponent <ControlsManager> ();
 	}
 
 	void Morreu () {

@@ -6,7 +6,7 @@ using UnityEngine.UI;
 public class ControleDeScore : MonoBehaviour {
 
 	public Text textoScore;
-	public ControleDoPersonagem cAluno;
+	public ControlsManager cAluno;
 
 	private int score = 0;
 	private int contadorDash = 0;
