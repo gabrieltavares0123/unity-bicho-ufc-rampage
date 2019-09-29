@@ -2386,6 +2386,24 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 4
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &342702844 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 1905580458370642, guid: b0bdb4d2cf1427f41b2de09544ebef15,
+    type: 3}
+  m_PrefabInstance: {fileID: 2028253456}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &342702845
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 342702844}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 85211cfa48985144a81fa89ad14e0a2d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1001 &344076329
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -3202,6 +3220,16 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 114133313192369036, guid: 61a715fe5d8aeb847b87ddd09241aeee,
+        type: 3}
+      propertyPath: textoScore
+      value: 
+      objectReference: {fileID: 490949051}
+    - target: {fileID: 114133313192369036, guid: 61a715fe5d8aeb847b87ddd09241aeee,
+        type: 3}
+      propertyPath: cAluno
+      value: 
+      objectReference: {fileID: 2099626287}
     - target: {fileID: 4383139983054252, guid: 61a715fe5d8aeb847b87ddd09241aeee, type: 3}
       propertyPath: m_LocalPosition.x
       value: 0
@@ -3234,16 +3262,6 @@ PrefabInstance:
       propertyPath: m_RootOrder
       value: 1
       objectReference: {fileID: 0}
-    - target: {fileID: 114133313192369036, guid: 61a715fe5d8aeb847b87ddd09241aeee,
-        type: 3}
-      propertyPath: textoScore
-      value: 
-      objectReference: {fileID: 490949051}
-    - target: {fileID: 114133313192369036, guid: 61a715fe5d8aeb847b87ddd09241aeee,
-        type: 3}
-      propertyPath: cAluno
-      value: 
-      objectReference: {fileID: 2099626287}
     - target: {fileID: 114213974285352568, guid: 61a715fe5d8aeb847b87ddd09241aeee,
         type: 3}
       propertyPath: textoTempo
@@ -14798,6 +14816,11 @@ PrefabInstance:
       propertyPath: textoDash
       value: 
       objectReference: {fileID: 1370292919}
+    - target: {fileID: 114569405887603172, guid: b0bdb4d2cf1427f41b2de09544ebef15,
+        type: 3}
+      propertyPath: speed
+      value: 10
+      objectReference: {fileID: 0}
     - target: {fileID: 114236006876801180, guid: b0bdb4d2cf1427f41b2de09544ebef15,
         type: 3}
       propertyPath: panelMorreu
@@ -15297,7 +15320,7 @@ MonoBehaviour:
     type: 3}
   m_PrefabInstance: {fileID: 2028253456}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
+  m_GameObject: {fileID: 342702844}
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 16d85040dd891524d8a75a0a5cc12144, type: 3}

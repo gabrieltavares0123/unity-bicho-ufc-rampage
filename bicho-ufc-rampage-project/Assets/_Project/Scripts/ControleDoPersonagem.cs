@@ -1,4 +1,5 @@
-﻿using System.Collections;
+﻿using Magrathea.BichoUFCRampage.Controls;
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
@@ -22,10 +23,16 @@ public class ControleDoPersonagem : MonoBehaviour {
 	private bool dash = false;
 	private bool a = false, d = false, p = false;
 
+    [SerializeField] private float speed;
+    private IMovableRight _rightMover;
+
 	void Awake () {
 		this.rb2d = GetComponent <Rigidbody2D> ();
 		this.anim = GetComponent <Animator> ();
 		textoDash.enabled = false;
+
+        _rightMover = GetComponent<RightMover>();
+        _rightMover.Speed = speed;
 	}
 
 	/*
@@ -58,12 +65,14 @@ public class ControleDoPersonagem : MonoBehaviour {
 			// Detecta se os botões estão sendo apertados
 			// proxBotão obriga o jogador a apertar os botões alternadamente
 			if (this.a) {
-				Mover ();
+				_rightMover.GoRight();
 				this.a = false;
-			} else if (this.d) {
-				Mover ();
-				this.d = false;
-			} 
+                this.proxBotao = !this.proxBotao;
+            } else if (this.d) {
+                _rightMover.GoRight();
+                this.d = false;
+                this.proxBotao = !this.proxBotao;
+            } 
 
 			// Pulo
 			if (this.p) {
