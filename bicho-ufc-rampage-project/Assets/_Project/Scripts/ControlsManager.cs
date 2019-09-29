@@ -23,8 +23,12 @@ public class ControlsManager : MonoBehaviour {
 
     [SerializeField] private float rightSpeed;
     [SerializeField] private float jumpForce;
+    [SerializeField] private LayerMask groundLayer;
+    [SerializeField] private Transform leftChecker;
+    [SerializeField] private Transform rightChecker;
     private IMovableRight _rightMover;
     private IJumpable _jumpper;
+    private IGroundable _groundChecker;
 
 	void Awake () {
 		this.rb2d = GetComponent <Rigidbody2D> ();
@@ -35,6 +39,10 @@ public class ControlsManager : MonoBehaviour {
         _rightMover.Speed = rightSpeed;
         _jumpper = GetComponent<Jumpper>();
         _jumpper.Force = jumpForce;
+        _groundChecker = GetComponent<GroundChecker>();
+        _groundChecker.Layer = groundLayer;
+        _groundChecker.LeftChecker = leftChecker;
+        _groundChecker.RightChecker = rightChecker;
 	}
 
 	/*
@@ -43,8 +51,8 @@ public class ControlsManager : MonoBehaviour {
 	 * mais confortável.
 	*/
 	void Update () {
-		// Detecta se pode pular
-		this.podePular = Physics2D.OverlapArea (groundCheck.position, groundCheck1.position, layerMask);
+        // Detecta se pode pular
+        this.podePular = _groundChecker.IsGrounded();
 
 		if (Input.GetKeyDown (KeyCode.A) && this.proxBotao) {
 			this.a = true;
@@ -84,38 +92,6 @@ public class ControlsManager : MonoBehaviour {
 				}
 			}
 		}
-	}
-
-	// Desnecessário depois do RightMover
-	void Mover () {
-		if (!moverNoAr && !podePular){
-			return;
-		}else {
-			this.rb2d.velocity = new Vector2 (Vector2.right.x * velocidadePersonagem.x, 0);
-			Mathf.Clamp (this.rb2d.velocity.x, 0f, velocidadeMaximaX);
-		}
-		controladorDeScore.SendMessage ("IncrementarScore", 1);
-		this.proxBotao = !this.proxBotao;
-		Debug.Log ("Moveu");
-	}
-
-	// Desnecessário depois do Jumpper
-	void Pular () {
-		if (this.dash) {
-			this.rb2d.velocity = new Vector2 (velocidadeDash.x, Vector2.up.y * velocidadeDash.y);
-			this.anim.SetTrigger ("Dash");
-			controladorDeScore.SendMessage ("IncrementarScore", 5);
-			this.podePular = false;
-			this.dash = false;
-			textoDash.enabled = dash;
-			Debug.Log ("Executou dash");
-		} else {
-			this.rb2d.velocity = new Vector2 (velocidadePersonagem.x, Vector2.up.y * velocidadePersonagem.y);
-			this.anim.SetTrigger ("Pular");
-			controladorDeScore.SendMessage ("IncrementarScore", 3);
-			this.podePular = false;
-		}
-		Debug.Log ("Pulou");
 	}
 		
 	void Dash () {
