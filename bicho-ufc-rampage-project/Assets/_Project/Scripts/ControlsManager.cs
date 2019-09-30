@@ -17,6 +17,7 @@ public class ControlsManager : MonoBehaviour {
     [SerializeField] private LayerMask groundLayer;
     [SerializeField] private Transform leftChecker;
     [SerializeField] private Transform rightChecker;
+
     private IMovableRight _rightMover;
     private IJumpable _jumpper;
     private IGroundable _groundChecker;
@@ -31,17 +32,18 @@ public class ControlsManager : MonoBehaviour {
 		textoDash.enabled = false;
 
         _rightMover = GetComponent<RightMover>();
-        _rightMover.Speed = rightSpeed;
         _jumpper = GetComponent<Jumpper>();
-        _jumpper.Force = jumpForce;
         _groundChecker = GetComponent<GroundChecker>();
+        _inputManager = GetComponent<InputManager>();
+
+        _rightMover.Speed = rightSpeed;
+        _jumpper.Force = jumpForce;
         _groundChecker.Layer = groundLayer;
         _groundChecker.LeftChecker = leftChecker;
         _groundChecker.RightChecker = rightChecker;
-        _inputManager = GetComponent<InputManager>();
-	}
+    }
 
-	void Update () {
+    void Update () {
         _animator.SetFloat("Correndo", Mathf.Abs(_rigidbody.velocity.x));
 
         if (_inputManager.Inputs.MoveInput() && _groundChecker.IsGrounded()) {

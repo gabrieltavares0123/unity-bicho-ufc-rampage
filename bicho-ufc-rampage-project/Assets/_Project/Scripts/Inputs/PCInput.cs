@@ -19,18 +19,18 @@ namespace Magrathea.BichoUFCRampage.Inputs
             throw new System.NotImplementedException();
         }
 
-        private bool nextButton = false;
+        private bool alternate = false;
         private bool AlternateButtons()
         {
-            if (GetAButton() && !nextButton)
+            if (GetAButton() && !alternate)
             {
-                nextButton = true;
+                alternate = true;
                 return true;
             }
 
-            if (GetDButton() && nextButton)
+            if (GetDButton() && alternate)
             {
-                nextButton = false;
+                alternate = false;
                 return true;
             }
 
