@@ -1,5 +1,4 @@
-﻿using System.Collections;
-using System.Collections.Generic;
+﻿using Magrathea.BichoUFCRampage.Controls;
 using UnityEngine;
 using UnityEngine.UI;
 
