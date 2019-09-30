@@ -1,4 +1,5 @@
-﻿using UnityEngine;
+﻿using Magrathea.BichoUFCRampage.Controls;
+using UnityEngine;
 
 public class Obstaculo : MonoBehaviour {
 
