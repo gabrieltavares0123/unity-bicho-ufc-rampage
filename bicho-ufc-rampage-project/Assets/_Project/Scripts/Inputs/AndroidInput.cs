@@ -5,17 +5,17 @@ namespace Magrathea.BichoUFCRampage.Inputs
 
     public class AndroidInput : IInputable
     {
+        public bool DashInput()
+        {
+            throw new System.NotImplementedException();
+        }
+
         public bool JumpInput()
         {
             return Input.GetKeyDown(KeyCode.Space);
         }
 
-        public bool MoveLeftInput()
-        {
-            return Input.GetKeyDown(KeyCode.A);
-        }
-
-        public bool MoveRightInput()
+        public bool MoveInput()
         {
             return Input.GetKeyDown(KeyCode.D);
         }

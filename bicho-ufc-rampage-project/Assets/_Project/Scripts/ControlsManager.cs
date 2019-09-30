@@ -5,16 +5,12 @@ using UnityEngine.UI;
 
 public class ControlsManager : MonoBehaviour {
 
-	public Vector2 velocidadeDash;// velocidades do dash em x e y
-	public ControleDeScore controladorDeScore;// usado para contar pontos para quando o jogador aperta "A" ou "D" alternado
+	public ControleDeScore controladorDeScore;
 	public Text textoDash;
 
-	private Rigidbody2D _rigidbody;
-	private bool proxBotao = true;// Controla a alternância entre os botões de entrada
-	private Animator anim;// Controle de animação do personagem
+	private bool proxBotao = true;
 	private bool parar = false;
 	private bool dash = false;
-	private bool a = false, d = false, p = false;
 
     [SerializeField] private float rightSpeed;
     [SerializeField] private float jumpForce;
@@ -26,9 +22,12 @@ public class ControlsManager : MonoBehaviour {
     private IGroundable _groundChecker;
     private IInputManager _inputManager;
 
-	void Awake () {
-		this._rigidbody = GetComponent <Rigidbody2D> ();
-		this.anim = GetComponent <Animator> ();
+    private Rigidbody2D _rigidbody;
+    private Animator _animator;
+
+    void Awake () {
+		_rigidbody = GetComponent <Rigidbody2D> ();
+		_animator = GetComponent <Animator> ();
 		textoDash.enabled = false;
 
         _rightMover = GetComponent<RightMover>();
@@ -43,45 +42,16 @@ public class ControlsManager : MonoBehaviour {
 	}
 
 	void Update () {
-		if (Input.GetKeyDown (KeyCode.A) && this.proxBotao) {
-			this.a = true;
-			this.proxBotao = false;
-		} else if (Input.GetKeyDown (KeyCode.D) && !this.proxBotao) {
-			this.d = true;
-			this.proxBotao = true;
-		} 
+        _animator.SetFloat("Correndo", Mathf.Abs(_rigidbody.velocity.x));
 
-		if (Input.GetKeyDown (KeyCode.Space) && _groundChecker.IsGrounded()) {
-				this.p = true;
+        if (_inputManager.Inputs.MoveInput() && _groundChecker.IsGrounded()) {
+            _rightMover.GoRight();
 		}
-	}
 
-	void FixedUpdate () {
-		// Desnecessário depois do GroundChecker
-		this.anim.SetFloat ("Correndo", Mathf.Abs (this._rigidbody.velocity.x));
-
-		if (!this.parar) {
-			// Detecta se os botões estão sendo apertados
-			// proxBotão obriga o jogador a apertar os botões alternadamente
-			if (this.a) {
-				_rightMover.GoRight();
-				this.a = false;
-                this.proxBotao = !this.proxBotao;
-            } else if (this.d) {
-                _rightMover.GoRight();
-                this.d = false;
-                this.proxBotao = !this.proxBotao;
-            } 
-
-			// Pulo
-			if (this.p) {
-				if (_groundChecker.IsGrounded()) {
-					_jumpper.JumpNow();
-					this.p = false;
-				}
-			}
-		}
-	}
+        if (_inputManager.Inputs.JumpInput() && _groundChecker.IsGrounded()) {
+            _jumpper.JumpNow();
+        }
+    }
 		
 	void Dash () {
 		this.dash = true;
@@ -95,7 +65,7 @@ public class ControlsManager : MonoBehaviour {
 	}
 
 	void Bater () {
-		this.anim.SetTrigger ("Bater");
+		this._animator.SetTrigger ("Bater");
 		Vector3 vx = Vector3.zero;
 		this._rigidbody.velocity = vx;
 		//vx.x = -velocidadePersonagem.x;

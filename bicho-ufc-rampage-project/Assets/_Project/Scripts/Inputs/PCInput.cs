@@ -2,22 +2,49 @@
 namespace Magrathea.BichoUFCRampage.Inputs
 {
     using UnityEngine;
-
     public class PCInput : IInputable
     {
         public bool JumpInput()
         {
-            throw new System.NotImplementedException();
+            return Input.GetKeyDown(KeyCode.Space);
         }
 
-        public bool MoveLeftInput()
+        public bool MoveInput()
+        {
+            return AlternateButtons();
+        }
+
+        public bool DashInput()
         {
             throw new System.NotImplementedException();
         }
 
-        public bool MoveRightInput()
+        private bool nextButton = false;
+        private bool AlternateButtons()
         {
-            throw new System.NotImplementedException();
+            if (GetAButton() && !nextButton)
+            {
+                nextButton = true;
+                return true;
+            }
+
+            if (GetDButton() && nextButton)
+            {
+                nextButton = false;
+                return true;
+            }
+
+            return false;
+        }
+
+        private bool GetAButton()
+        {
+            return Input.GetKeyDown(KeyCode.A);
+        }
+
+        private bool GetDButton()
+        {
+            return Input.GetKeyDown(KeyCode.D);
         }
     }
 }
