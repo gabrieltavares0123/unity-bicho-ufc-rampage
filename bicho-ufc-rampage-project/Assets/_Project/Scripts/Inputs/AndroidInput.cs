@@ -5,10 +5,10 @@ namespace Magrathea.BichoUFCRampage.Inputs
 
     public class AndroidInput : MonoBehaviour, IInputable
     {
-        [SerializeField] private bool detectSwipeOnlyAfterRelease = true;
+        [SerializeField] private bool detectSwipeOnlyAfterRelease = false;
         [SerializeField] private bool detectTapOnlyAfterRelease = true;
         [SerializeField] private float swipeThreshold = 20f;
-        [SerializeField] private float thresholdTimeBetweenTaps = 0.1f;
+        [SerializeField] private float thresholdTimeBetweenTaps = 0.5f;
 
         private Vector2 fingerDown;
         private Vector2 fingerUp;
@@ -74,7 +74,7 @@ namespace Magrathea.BichoUFCRampage.Inputs
 
                     if (!detectTapOnlyAfterRelease)
                     {
-                        if (Time.time - _tapsTimer <= 0.1f)
+                        if (Time.time - _tapsTimer <= thresholdTimeBetweenTaps)
                         {
                             _canTap = true;
                         }
@@ -89,7 +89,7 @@ namespace Magrathea.BichoUFCRampage.Inputs
                 {
                     fingerDown = touch.position;
 
-                    if (Time.time - _tapsTimer <= 0.1f)
+                    if (Time.time - _tapsTimer <= thresholdTimeBetweenTaps)
                     {
                         _canTap = true;
                     }

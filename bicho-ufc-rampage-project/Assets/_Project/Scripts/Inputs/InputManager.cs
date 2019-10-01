@@ -7,11 +7,9 @@ namespace Magrathea.BichoUFCRampage.Inputs
     {
         public IInputable Inputs
         {
-            private set => _inputs = value;
-            get => _inputs;
+            private set;
+            get;
         }
-
-        private IInputable _inputs;
 
         private void Awake()
         {
