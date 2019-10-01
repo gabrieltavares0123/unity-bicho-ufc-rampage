@@ -18,7 +18,9 @@ namespace Magrathea.BichoUFCRampage.Inputs
 #if UNITY_STANDALONE
             Inputs = new PCInput();
 #elif UNITY_ANDROID
-            Inputs = new AndroidInput();
+            GameObject inputGameObject = new GameObject("Android Input");
+            inputGameObject.transform.parent = gameObject.transform;
+            Inputs = inputGameObject.AddComponent<AndroidInput>();
 #endif
         }
     }

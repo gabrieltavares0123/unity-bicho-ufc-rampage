@@ -11,7 +11,7 @@ public class ControleDaCamera : MonoBehaviour {
 	public  CanvasRenderer panelComecar;
 	public Transform aluno;
 
-	private bool mover = false;
+	private bool mover = true;
 	private bool parar = false;
 
 	void Awake () {
@@ -41,6 +41,6 @@ public class ControleDaCamera : MonoBehaviour {
 	}
 
 	void Parar () {
-		this.parar = true;
+		this.parar = false;
 	}
 }
