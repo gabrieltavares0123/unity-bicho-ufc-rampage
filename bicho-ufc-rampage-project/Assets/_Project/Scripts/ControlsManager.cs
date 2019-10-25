@@ -40,8 +40,6 @@ namespace Magrathea.BichoUFCRampage.Controls
             _groundChecker = GetComponent<GroundChecker>();
             _inputManager = GetComponent<InputManager>();
 
-            //_rightMover.Speed = rightSpeed;
-            _jumpper.Force = jumpForce;
             _groundChecker.Layer = groundLayer;
             _groundChecker.LeftChecker = leftChecker;
             _groundChecker.RightChecker = rightChecker;
@@ -63,7 +61,7 @@ namespace Magrathea.BichoUFCRampage.Controls
 
             if (CanJump())
             {
-                _jumpper.JumpNow();
+                _jumpper.JumpNow(jumpForce);
             }
         }
 
