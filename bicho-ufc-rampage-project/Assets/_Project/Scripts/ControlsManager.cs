@@ -39,10 +39,6 @@ namespace Magrathea.BichoUFCRampage.Controls
             _jumpper = GetComponent<Jumpper>();
             _groundChecker = GetComponent<GroundChecker>();
             _inputManager = GetComponent<InputManager>();
-
-            _groundChecker.Layer = groundLayer;
-            _groundChecker.LeftChecker = leftChecker;
-            _groundChecker.RightChecker = rightChecker;
         }
 
         void Update()
@@ -67,12 +63,14 @@ namespace Magrathea.BichoUFCRampage.Controls
 
         private bool CanMoveRight()
         {
-            return _inputManager.Inputs.MoveInput() && _groundChecker.IsGrounded();
+            return _inputManager.Inputs.MoveInput() && 
+                _groundChecker.IsGrounded(groundLayer, leftChecker, rightChecker);
         }
 
         private bool CanJump()
         {
-            return _inputManager.Inputs.JumpInput() && _groundChecker.IsGrounded();
+            return _inputManager.Inputs.JumpInput() && 
+                _groundChecker.IsGrounded(groundLayer, leftChecker, rightChecker);
         }
 
         void Dash()

@@ -5,26 +5,9 @@ namespace Magrathea.BichoUFCRampage.Controls
 
     public class GroundChecker : MonoBehaviour, IGroundable
     {
-        public LayerMask Layer
+        public bool IsGrounded(LayerMask layer, Transform left, Transform right)
         {
-            get;
-            set;
-        }
-
-        public Transform LeftChecker
-        {
-            get;
-            set;
-        }
-        public Transform RightChecker
-        {
-            get;
-            set;
-        }
-
-        public bool IsGrounded()
-        {
-            return Physics2D.OverlapArea(LeftChecker.position, RightChecker.position, Layer);
+            return Physics2D.OverlapArea(left.position, right.position, layer);
         }
     }
 }
