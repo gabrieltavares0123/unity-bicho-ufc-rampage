@@ -8,21 +8,15 @@ namespace Magrathea.BichoUFCRampage.Controls
     {
         private Rigidbody2D _rigidbody2D;
 
-        public float Speed
-        {
-            get;
-            set;
-        }
-
         private void Awake()
         {
             _rigidbody2D = GetComponent<Rigidbody2D>();
         }
 
-        public void GoRight()
+        public void GoRight(float speed)
         {
             float ySpeed = _rigidbody2D.velocity.y;
-            Vector2 newVel = new Vector2(Speed, ySpeed);
+            Vector2 newVel = new Vector2(speed, ySpeed);
             _rigidbody2D.velocity = newVel;
         }
     }
