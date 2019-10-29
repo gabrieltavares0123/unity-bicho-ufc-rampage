@@ -20,11 +20,13 @@ namespace Magrathea.BichoUFCRampage.Controls
         [SerializeField] private LayerMask groundLayer;
         [SerializeField] private Transform leftChecker;
         [SerializeField] private Transform rightChecker;
+        [SerializeField] private float dashBoost; 
 
         private IMovableRight _rightMover;
         private IJumpable _jumpper;
         private IGroundable _groundChecker;
         private IInputManager _inputManager;
+        private IDashable _dasher;
 
         private Rigidbody2D _rigidbody;
         private Animator _animator;
@@ -39,6 +41,7 @@ namespace Magrathea.BichoUFCRampage.Controls
             _jumpper = GetComponent<Jumpper>();
             _groundChecker = GetComponent<GroundChecker>();
             _inputManager = GetComponent<InputManager>();
+            _dasher = GetComponent<Dasher>();
         }
 
         void Update()
@@ -58,6 +61,11 @@ namespace Magrathea.BichoUFCRampage.Controls
             if (CanJump())
             {
                 _jumpper.JumpNow(jumpForce);
+            }
+
+            if (_inputManager.Inputs.DashInput())
+            {
+                _dasher.DoDash(dashBoost);
             }
         }
 

@@ -7,18 +7,18 @@ namespace Magrathea.BichoUFCRampage.Inputs
     {
         public IInputable Inputs
         {
-            private set => _inputs = value;
-            get => _inputs;
+            private set;
+            get;
         }
-
-        private IInputable _inputs;
 
         private void Awake()
         {
 #if UNITY_STANDALONE
             Inputs = new PCInput();
 #elif UNITY_ANDROID
-            Inputs = new AndroidInput();
+            GameObject inputGameObject = new GameObject("Android Input");
+            inputGameObject.transform.parent = gameObject.transform;
+            Inputs = inputGameObject.AddComponent<AndroidInput>();
 #endif
         }
     }
