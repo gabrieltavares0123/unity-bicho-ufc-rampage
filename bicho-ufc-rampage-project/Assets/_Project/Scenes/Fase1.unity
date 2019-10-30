@@ -1365,12 +1365,6 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
---- !u!4 &365656378 stripped
-Transform:
-  m_CorrespondingSourceObject: {fileID: 4499153413421480, guid: b0bdb4d2cf1427f41b2de09544ebef15,
-    type: 3}
-  m_PrefabInstance: {fileID: 2028253456}
-  m_PrefabAsset: {fileID: 0}
 --- !u!1 &431974441
 GameObject:
   m_ObjectHideFlags: 0
@@ -4593,9 +4587,7 @@ GameObject:
   - component: {fileID: 1962373451}
   - component: {fileID: 1962373450}
   - component: {fileID: 1962373449}
-  - component: {fileID: 1962373448}
   - component: {fileID: 1962373447}
-  - component: {fileID: 1962373446}
   m_Layer: 0
   m_Name: Main Camera
   m_TagString: MainCamera
@@ -4603,23 +4595,6 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!114 &1962373446
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1962373445}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 57fc61970210ef040a88b6c4fbdb9c90, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  velocidade: 3.5
-  textoScore: {fileID: 0}
-  textoTempo: {fileID: 0}
-  panelComecar: {fileID: 0}
-  aluno: {fileID: 365656378}
 --- !u!81 &1962373447
 AudioListener:
   m_ObjectHideFlags: 0
@@ -4628,14 +4603,6 @@ AudioListener:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1962373445}
   m_Enabled: 1
---- !u!92 &1962373448
-Behaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1962373445}
-  m_Enabled: 0
 --- !u!124 &1962373449
 Behaviour:
   m_ObjectHideFlags: 0
@@ -5035,56 +5002,6 @@ PrefabInstance:
     - target: {fileID: 4499153413421480, guid: b0bdb4d2cf1427f41b2de09544ebef15, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 114569405887603172, guid: b0bdb4d2cf1427f41b2de09544ebef15,
-        type: 3}
-      propertyPath: controladorDeScore
-      value: 
-      objectReference: {fileID: 0}
-    - target: {fileID: 114569405887603172, guid: b0bdb4d2cf1427f41b2de09544ebef15,
-        type: 3}
-      propertyPath: textoDash
-      value: 
-      objectReference: {fileID: 0}
-    - target: {fileID: 114569405887603172, guid: b0bdb4d2cf1427f41b2de09544ebef15,
-        type: 3}
-      propertyPath: dashBoost
-      value: 1.5
-      objectReference: {fileID: 0}
-    - target: {fileID: 114569405887603172, guid: b0bdb4d2cf1427f41b2de09544ebef15,
-        type: 3}
-      propertyPath: dashDuration
-      value: 0.5
-      objectReference: {fileID: 0}
-    - target: {fileID: 114569405887603172, guid: b0bdb4d2cf1427f41b2de09544ebef15,
-        type: 3}
-      propertyPath: jumpForce
-      value: 15
-      objectReference: {fileID: 0}
-    - target: {fileID: 114236006876801180, guid: b0bdb4d2cf1427f41b2de09544ebef15,
-        type: 3}
-      propertyPath: panelMorreu
-      value: 
-      objectReference: {fileID: 0}
-    - target: {fileID: 114236006876801180, guid: b0bdb4d2cf1427f41b2de09544ebef15,
-        type: 3}
-      propertyPath: controleDaCamera
-      value: 
-      objectReference: {fileID: 1962373446}
-    - target: {fileID: 114236006876801180, guid: b0bdb4d2cf1427f41b2de09544ebef15,
-        type: 3}
-      propertyPath: controleDeTempo
-      value: 
-      objectReference: {fileID: 0}
-    - target: {fileID: 114236006876801180, guid: b0bdb4d2cf1427f41b2de09544ebef15,
-        type: 3}
-      propertyPath: cam
-      value: 
-      objectReference: {fileID: 1962373451}
-    - target: {fileID: 1605619250563540435, guid: b0bdb4d2cf1427f41b2de09544ebef15,
-        type: 3}
-      propertyPath: fallingMultiplier
-      value: 3.5
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: b0bdb4d2cf1427f41b2de09544ebef15, type: 3}
