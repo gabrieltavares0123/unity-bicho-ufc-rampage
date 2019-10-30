@@ -16,7 +16,7 @@ namespace Magrathea.BichoUFCRampage.Inputs
 
         public bool DashInput()
         {
-            throw new System.NotImplementedException();
+            return Input.GetKey(KeyCode.K);
         }
 
         private bool alternate = false;

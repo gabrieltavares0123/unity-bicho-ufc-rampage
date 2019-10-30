@@ -13,7 +13,7 @@ namespace Magrathea.BichoUFCRampage.Inputs
 
         private void Awake()
         {
-#if UNITY_STANDALONE
+#if UNITY_EDITOR || UNITY_STANDALONE
             Inputs = new PCInput();
 #elif UNITY_ANDROID
             GameObject inputGameObject = new GameObject("Android Input");

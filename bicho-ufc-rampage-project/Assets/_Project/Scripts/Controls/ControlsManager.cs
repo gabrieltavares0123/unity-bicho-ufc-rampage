@@ -3,6 +3,7 @@ namespace Magrathea.BichoUFCRampage.Controls
 {
     using System;
     using Magrathea.BichoUFCRampage.Inputs;
+    using Magrathea.BichoUFCRampage.Dash;
     using UnityEngine;
     using UnityEngine.UI;
 
@@ -20,7 +21,8 @@ namespace Magrathea.BichoUFCRampage.Controls
         [SerializeField] private LayerMask groundLayer;
         [SerializeField] private Transform leftChecker;
         [SerializeField] private Transform rightChecker;
-        [SerializeField] private float dashBoost; 
+        [SerializeField] private float dashBoost;
+        [SerializeField] private float dashDuration;
 
         private IMovableRight _rightMover;
         private IJumpable _jumpper;
@@ -65,7 +67,8 @@ namespace Magrathea.BichoUFCRampage.Controls
 
             if (_inputManager.Inputs.DashInput())
             {
-                _dasher.DoDash(dashBoost);
+                
+                _dasher.DoDash((dashBoost * rightSpeed), dashDuration);
             }
         }
 
