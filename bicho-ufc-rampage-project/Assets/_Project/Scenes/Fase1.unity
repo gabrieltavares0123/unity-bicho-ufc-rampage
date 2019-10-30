@@ -14784,6 +14784,11 @@ PrefabInstance:
       propertyPath: dashDuration
       value: 0.5
       objectReference: {fileID: 0}
+    - target: {fileID: 114569405887603172, guid: b0bdb4d2cf1427f41b2de09544ebef15,
+        type: 3}
+      propertyPath: jumpForce
+      value: 15
+      objectReference: {fileID: 0}
     - target: {fileID: 114236006876801180, guid: b0bdb4d2cf1427f41b2de09544ebef15,
         type: 3}
       propertyPath: panelMorreu
@@ -14804,6 +14809,11 @@ PrefabInstance:
       propertyPath: cam
       value: 
       objectReference: {fileID: 1962373451}
+    - target: {fileID: 1605619250563540435, guid: b0bdb4d2cf1427f41b2de09544ebef15,
+        type: 3}
+      propertyPath: fallingMultiplier
+      value: 3.5
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: b0bdb4d2cf1427f41b2de09544ebef15, type: 3}
 --- !u!4 &2041531044 stripped
