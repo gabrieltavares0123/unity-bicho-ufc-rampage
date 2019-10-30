@@ -20,7 +20,7 @@ public class FimDaFase : MonoBehaviour {
 			controleDaCamera.SendMessage ("Parar");
 			ControleDeTempo.SendMessage ("Parar");
 			float tempo = ControleDeTempo.GetInstance ().GetTempo ();
-			int score = ControleDeScore.GetInstance ().GetScore ();
+			//int score = ControleDeScore.GetInstance ().GetScore ();
 		}
 	}
 }

@@ -74,7 +74,6 @@ GameObject:
   - component: {fileID: 50303015464677574}
   - component: {fileID: 95589177418029240}
   - component: {fileID: 114569405887603172}
-  - component: {fileID: 114236006876801180}
   - component: {fileID: 342702845}
   - component: {fileID: 342702846}
   - component: {fileID: 342702852}
@@ -233,33 +232,15 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 16d85040dd891524d8a75a0a5cc12144, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  controladorDeScore: {fileID: 0}
-  textoDash: {fileID: 0}
   rightSpeed: 6
-  jumpForce: 10
+  jumpForce: 15
   groundLayer:
     serializedVersion: 2
     m_Bits: 256
   leftChecker: {fileID: 4836690254597030}
   rightChecker: {fileID: 4107821944396540}
-  dashBoost: 5
-  dashDuration: 0
---- !u!114 &114236006876801180
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1905580458370642}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 47bf18c6ee82dc44b8debff4dfeef61c, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  panelMorreu: {fileID: 0}
-  controleDaCamera: {fileID: 0}
-  controleDeTempo: {fileID: 0}
-  cam: {fileID: 0}
+  dashBoost: 1.5
+  dashDuration: 0.5
 --- !u!114 &342702845
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -333,7 +314,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   risingMultiplier: 2.5
-  fallingMultiplier: 2.5
+  fallingMultiplier: 3.5
 --- !u!114 &4055156703403004771
 MonoBehaviour:
   m_ObjectHideFlags: 0

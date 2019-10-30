@@ -1,21 +1,12 @@
 ﻿
 namespace Magrathea.BichoUFCRampage.Controls
 {
-    using System;
     using Magrathea.BichoUFCRampage.Inputs;
     using Magrathea.BichoUFCRampage.Dash;
     using UnityEngine;
-    using UnityEngine.UI;
 
     public class ControlsManager : MonoBehaviour
     {
-        public ControleDeScore controladorDeScore;
-        public Text textoDash;
-
-        private bool proxBotao = true;
-        private bool parar = false;
-        private bool dash = false;
-
         [SerializeField] private float rightSpeed;
         [SerializeField] private float jumpForce;
         [SerializeField] private LayerMask groundLayer;
@@ -37,7 +28,6 @@ namespace Magrathea.BichoUFCRampage.Controls
         {
             _rigidbody = GetComponent<Rigidbody2D>();
             _animator = GetComponent<Animator>();
-            textoDash.enabled = false;
 
             _rightMover = GetComponent<RightMover>();
             _jumpper = GetComponent<Jumpper>();
@@ -82,19 +72,6 @@ namespace Magrathea.BichoUFCRampage.Controls
         {
             return _inputManager.Inputs.JumpInput() && 
                 _groundChecker.IsGrounded(groundLayer, leftChecker, rightChecker);
-        }
-
-        void Dash()
-        {
-            this.dash = true;
-            textoDash.enabled = dash;
-            Debug.Log("Dash habilitado");
-        }
-
-        void Parar()
-        {
-            this.parar = true;
-            textoDash.enabled = false;
         }
 
         void Bater()
