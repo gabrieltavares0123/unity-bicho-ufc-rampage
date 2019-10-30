@@ -2,17 +2,18 @@
 namespace Magrathea.BichoUFCRampage.Score
 {
     using UnityEngine;
+    using UnityEngine.Events;
 
     public class ScoreManager : MonoBehaviour, IScoreObserver
     {
-        private int _score;
+        public static UnityAction OnItemCollected;
 
+        private int _score;
         private IDrawableScore _scoreDrawer;
 
         private void Awake()
         {
             _score = 0;
-
             _scoreDrawer = FindObjectOfType<ScoreDrawer>();
         }
 
@@ -38,6 +39,7 @@ namespace Magrathea.BichoUFCRampage.Score
         {
             _score += points;
             _scoreDrawer.Draw(_score);
+            OnItemCollected();
         }
     }
 }
