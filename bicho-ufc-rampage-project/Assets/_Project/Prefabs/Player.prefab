@@ -83,6 +83,7 @@ GameObject:
   - component: {fileID: 4055156703403004771}
   - component: {fileID: 760184036099177253}
   - component: {fileID: 4350244436011893180}
+  - component: {fileID: 2231477164879994091}
   - component: {fileID: 6507470276733028777}
   m_Layer: 0
   m_Name: Player
@@ -354,6 +355,19 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   itemCountToUseDash: 1
+--- !u!114 &2231477164879994091
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1905580458370642}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c606e15c25623844db6db87328345e0f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  dashCounterSlider: {fileID: 0}
 --- !u!114 &6507470276733028777
 MonoBehaviour:
   m_ObjectHideFlags: 0
