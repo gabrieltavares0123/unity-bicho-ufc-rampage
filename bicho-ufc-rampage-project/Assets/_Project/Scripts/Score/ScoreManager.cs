@@ -39,7 +39,8 @@ namespace Magrathea.BichoUFCRampage.Score
         {
             _score += points;
             _scoreDrawer.Draw(_score);
-            OnItemCollected();
+
+            OnItemCollected?.Invoke();
         }
     }
 }
