@@ -2,10 +2,13 @@
 namespace Magrathea.BichoUFCRampage.Health
 {
     using UnityEngine;
+    using UnityEngine.Events;
 
     [RequireComponent(typeof(HealthDrawer))]
     public class PlayerHealth : MonoBehaviour, IHealth
     {
+        public static UnityAction OnPlayerDied;
+
         [SerializeField] private int startingHealth;
 
         private int _health;
@@ -50,6 +53,7 @@ namespace Magrathea.BichoUFCRampage.Health
         {
             _health = 0;
             _healthDrawer.DrawHealth(_health);
+            OnPlayerDied?.Invoke();
             Debug.Log("You have died.");
         }
 

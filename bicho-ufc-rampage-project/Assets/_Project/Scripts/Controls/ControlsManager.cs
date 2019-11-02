@@ -4,8 +4,9 @@ namespace Magrathea.BichoUFCRampage.Controls
     using Magrathea.BichoUFCRampage.Inputs;
     using Magrathea.BichoUFCRampage.Dash;
     using UnityEngine;
+    using Magrathea.BichoUFCRampage.Health;
 
-    public class ControlsManager : MonoBehaviour
+    public class ControlsManager : MonoBehaviour, IStopable, IStartable
     {
         [SerializeField] private float rightSpeed;
         [SerializeField] private float jumpForce;
@@ -23,6 +24,17 @@ namespace Magrathea.BichoUFCRampage.Controls
 
         private Rigidbody2D _rigidbody;
         private Animator _animator;
+        private bool doINeedToDoMyJob = true;
+
+        private void OnEnable()
+        {
+            PlayerHealth.OnPlayerDied += StopNow;
+        }
+
+        private void OnDisable()
+        {
+            PlayerHealth.OnPlayerDied -= StopNow;
+        }
 
         void Awake()
         {
@@ -45,20 +57,23 @@ namespace Magrathea.BichoUFCRampage.Controls
 
         private void VerifyInputs()
         {
-            if (CanMoveRight())
+            if (doINeedToDoMyJob)
             {
-                _rightMover.GoRight(rightSpeed);
-            }
+                if (CanMoveRight())
+                {
+                    _rightMover.GoRight(rightSpeed);
+                }
 
-            if (CanJump())
-            {
-                _jumpper.JumpNow(jumpForce);
-            }
+                if (CanJump())
+                {
+                    _jumpper.JumpNow(jumpForce);
+                }
 
-            if (_inputManager.Inputs.DashInput())
-            {
-                
-                _dasher.DoDash((dashBoost * rightSpeed), dashDuration);
+                if (_inputManager.Inputs.DashInput())
+                {
+
+                    _dasher.DoDash((dashBoost * rightSpeed), dashDuration);
+                }
             }
         }
 
@@ -74,13 +89,14 @@ namespace Magrathea.BichoUFCRampage.Controls
                 _groundChecker.IsGrounded(groundLayer, leftChecker, rightChecker);
         }
 
-        void Bater()
+        public void StartNow()
         {
-            this._animator.SetTrigger("Bater");
-            Vector3 vx = Vector3.zero;
-            this._rigidbody.velocity = vx;
-            //vx.x = -velocidadePersonagem.x;
-            this._rigidbody.velocity = vx;
+            doINeedToDoMyJob = true;
+        }
+
+        public void StopNow()
+        {
+            doINeedToDoMyJob = false;
         }
     }
 }
