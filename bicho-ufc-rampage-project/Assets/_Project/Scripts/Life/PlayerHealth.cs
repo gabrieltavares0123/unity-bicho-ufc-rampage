@@ -3,11 +3,13 @@ namespace Magrathea.BichoUFCRampage.Health
 {
     using UnityEngine;
 
+    [RequireComponent(typeof(HealthDrawer))]
     public class PlayerHealth : MonoBehaviour, IHealth
     {
         [SerializeField] private int startingHealth;
 
         private int _health;
+        private IDrawableHealth _healthDrawer;
 
         private void OnEnable()
         {
@@ -22,6 +24,7 @@ namespace Magrathea.BichoUFCRampage.Health
         private void Awake()
         {
             _health = startingHealth;
+            _healthDrawer = GetComponent<HealthDrawer>();
         }
 
         public void Decrement(int value)
@@ -29,6 +32,7 @@ namespace Magrathea.BichoUFCRampage.Health
             if (IsAlive())
             {
                 _health -= value;
+                _healthDrawer.DrawHealth(_health);
 
                 if (!IsAlive())
                 {
@@ -45,6 +49,7 @@ namespace Magrathea.BichoUFCRampage.Health
         private void DieNow()
         {
             _health = 0;
+            _healthDrawer.DrawHealth(_health);
             Debug.Log("You have died.");
         }
 
