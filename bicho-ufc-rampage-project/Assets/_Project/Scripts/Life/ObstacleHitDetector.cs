@@ -12,7 +12,12 @@ namespace Magrathea.BichoUFCRampage.Health
         {
             if (other.gameObject.CompareTag("Player"))
             {
-                OnHitPlayer?.Invoke(Constants.Hit.BOX);
+                Vector2 contactPoint = other.contacts[0].normal;
+                Vector2 left = new Vector2(1.0f, 0.0f);
+                if (contactPoint == left)
+                {
+                    OnHitPlayer?.Invoke(Constants.Hit.BOX);
+                }
             }
         }
     }
