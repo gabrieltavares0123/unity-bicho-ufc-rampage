@@ -24,7 +24,7 @@ namespace Magrathea.BichoUFCRampage.Controls
 
         private Rigidbody2D _rigidbody;
         private Animator _animator;
-        private bool doINeedToDoMyJob = true;
+        private bool _doINeedToDoMyJob = true;
 
         private void OnEnable()
         {
@@ -57,7 +57,7 @@ namespace Magrathea.BichoUFCRampage.Controls
 
         private void VerifyInputs()
         {
-            if (doINeedToDoMyJob)
+            if (_doINeedToDoMyJob)
             {
                 if (CanMoveRight())
                 {
@@ -91,12 +91,12 @@ namespace Magrathea.BichoUFCRampage.Controls
 
         public void StartNow()
         {
-            doINeedToDoMyJob = true;
+            _doINeedToDoMyJob = true;
         }
 
         public void StopNow()
         {
-            doINeedToDoMyJob = false;
+            _doINeedToDoMyJob = false;
         }
     }
 }
