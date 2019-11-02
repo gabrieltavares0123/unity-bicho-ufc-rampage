@@ -9,5 +9,10 @@ namespace Magrathea.BichoUFCRampage
             public static int BEER = 150;
             public static int WATER = 75;
         }
+
+        public static class Hit
+        {
+            public static int BOX = 1;
+        }
     }
 }

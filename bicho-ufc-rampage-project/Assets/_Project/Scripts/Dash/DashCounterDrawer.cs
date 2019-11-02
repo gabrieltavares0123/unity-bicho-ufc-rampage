@@ -2,7 +2,6 @@
 namespace Magrathea.BichoUFCRampage.Dash
 {
     using UnityEngine;
-    using TMPro;
     using UnityEngine.UI;
 
     public class DashCounterDrawer : MonoBehaviour, IDrawableDashCounter
