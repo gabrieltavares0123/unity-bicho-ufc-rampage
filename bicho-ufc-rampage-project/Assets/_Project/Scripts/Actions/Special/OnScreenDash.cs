@@ -1,14 +1,14 @@
 ﻿
-namespace Magrathea.BichoUFCRampage.Dash
+namespace Magrathea.bufcr.Actions.Special
 {
     using UnityEngine;
     using UnityEngine.UI;
 
-    public class DashCounterDrawer : MonoBehaviour, IDrawableDashCounter
+    public class OnScreenDash : MonoBehaviour, IOnScreenDash
     {
         [SerializeField] private Slider dashCounterSlider;
 
-        public void Draw(int counter)
+        public void ShowDashCounterOnScreen(int counter)
         {
             dashCounterSlider.value = counter;
         }

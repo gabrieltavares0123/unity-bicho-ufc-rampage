@@ -6304,6 +6304,20 @@ PrefabInstance:
       propertyPath: healthSlider
       value: 
       objectReference: {fileID: 1225013106}
+    - target: {fileID: 342702852, guid: b0bdb4d2cf1427f41b2de09544ebef15, type: 3}
+      propertyPath: jumpForce
+      value: 17
+      objectReference: {fileID: 0}
+    - target: {fileID: 9039097500314605952, guid: b0bdb4d2cf1427f41b2de09544ebef15,
+        type: 3}
+      propertyPath: boostForce
+      value: 14
+      objectReference: {fileID: 0}
+    - target: {fileID: 9039097500314605952, guid: b0bdb4d2cf1427f41b2de09544ebef15,
+        type: 3}
+      propertyPath: specialDuration
+      value: 0.5
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: b0bdb4d2cf1427f41b2de09544ebef15, type: 3}
 --- !u!1 &2041184104

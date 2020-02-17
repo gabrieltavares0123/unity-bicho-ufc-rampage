@@ -1,5 +1,5 @@
 ﻿
-namespace Magrathea.BichoUFCRampage.Controls
+namespace Magrathea.bufcr.Actions
 {
     using UnityEngine;
 

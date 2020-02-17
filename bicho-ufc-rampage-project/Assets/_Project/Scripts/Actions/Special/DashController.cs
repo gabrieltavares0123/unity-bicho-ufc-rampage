@@ -1,20 +1,21 @@
 ﻿
-namespace Magrathea.BichoUFCRampage.Dash
+namespace Magrathea.bufcr.Actions.Special
 {
-    using Magrathea.BichoUFCRampage.Score;
     using UnityEngine;
 
-    [RequireComponent(typeof(DashCounterDrawer))]
-    public class DashCounter : MonoBehaviour, IDashCounter
+    using Magrathea.BichoUFCRampage.Score;
+
+    [RequireComponent(typeof(OnScreenDash))]
+    public class DashController : MonoBehaviour, IDashController
     {
         [SerializeField] private int itemCountToUseDash;
 
         private int _dashCounter;
-        private IDrawableDashCounter _dashCounterDrawer;
+        private IOnScreenDash _onScreenDash;
 
         private void Awake()
         {
-            _dashCounterDrawer = GetComponent<DashCounterDrawer>();
+            _onScreenDash = GetComponent<OnScreenDash>();
         }
 
         private void OnEnable()
@@ -38,13 +39,13 @@ namespace Magrathea.BichoUFCRampage.Dash
         public void IncrementCounter()
         {
             _dashCounter++;
-            _dashCounterDrawer.Draw(_dashCounter);
+            _onScreenDash.ShowDashCounterOnScreen(_dashCounter);
         }
 
         public void RestartCounter()
         {
             _dashCounter = 0;
-            _dashCounterDrawer.Draw(_dashCounter);
+            _onScreenDash.ShowDashCounterOnScreen(_dashCounter);
         }
     }
 }

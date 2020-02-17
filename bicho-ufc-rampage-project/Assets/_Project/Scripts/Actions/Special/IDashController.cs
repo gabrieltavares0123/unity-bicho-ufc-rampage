@@ -1,7 +1,7 @@
 ﻿
-namespace Magrathea.BichoUFCRampage.Dash
+namespace Magrathea.bufcr.Actions.Special
 {
-    public interface IDashCounter
+    public interface IDashController
     {
         bool CanDash();
         void IncrementCounter();

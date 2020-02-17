@@ -1,7 +1,7 @@
 ﻿
 using UnityEngine;
 
-namespace Magrathea.BichoUFCRampage.Controls
+namespace Magrathea.bufcr.Actions
 {
     public interface IGroundable
     {

@@ -73,7 +73,6 @@ GameObject:
   - component: {fileID: 61048831602811582}
   - component: {fileID: 50303015464677574}
   - component: {fileID: 95589177418029240}
-  - component: {fileID: 114569405887603172}
   - component: {fileID: 342702845}
   - component: {fileID: 342702846}
   - component: {fileID: 342702852}
@@ -84,7 +83,6 @@ GameObject:
   - component: {fileID: 760184036099177253}
   - component: {fileID: 4350244436011893180}
   - component: {fileID: 2231477164879994091}
-  - component: {fileID: 6507470276733028777}
   - component: {fileID: 129284973190480775}
   - component: {fileID: 6897276341002084235}
   m_Layer: 0
@@ -225,27 +223,6 @@ Animator:
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorControllerStateOnDisable: 0
---- !u!114 &114569405887603172
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1905580458370642}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 16d85040dd891524d8a75a0a5cc12144, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  rightSpeed: 6
-  jumpForce: 15
-  groundLayer:
-    serializedVersion: 2
-    m_Bits: 256
-  leftChecker: {fileID: 4836690254597030}
-  rightChecker: {fileID: 4107821944396540}
-  dashBoost: 1.5
-  dashDuration: 0.5
 --- !u!114 &342702845
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -258,6 +235,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 85211cfa48985144a81fa89ad14e0a2d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  movementForce: 7
 --- !u!114 &342702846
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -282,6 +260,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f522b1e0e62d2c1458927426c200168b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  jumpForce: 17
+  groundLayer:
+    serializedVersion: 2
+    m_Bits: 256
+  leftChecker: {fileID: 4836690254597030}
+  rightChecker: {fileID: 4107821944396540}
 --- !u!114 &685857340207196871
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -306,6 +290,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2c1cbb608fdbf1e488f63036d2eaf449, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  boostForce: 14
+  specialDuration: 0.5
 --- !u!114 &1605619250563540435
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -370,18 +356,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   dashCounterSlider: {fileID: 0}
---- !u!114 &6507470276733028777
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1905580458370642}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 2c1cbb608fdbf1e488f63036d2eaf449, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!114 &129284973190480775
 MonoBehaviour:
   m_ObjectHideFlags: 0

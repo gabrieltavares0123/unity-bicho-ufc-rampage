@@ -2,7 +2,7 @@
 namespace Magrathea.BichoUFCRampage.Inputs
 {
     using UnityEngine;
-    public class PCInput : IInputable
+    public class PCInput : MonoBehaviour, IInputable
     {
         public bool JumpInput()
         {
