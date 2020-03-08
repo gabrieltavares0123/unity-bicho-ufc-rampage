@@ -13,7 +13,7 @@ namespace Magrathea.bufcr.Core
     public class LevelStarter : MonoBehaviour
     {
         private ILevelStarter _levelStarter;//Responsável por propagar que a fase inciou para outros componentes.
-        private bool _isLevelStarted = false;//Flag que ajuda a evitar que a mensagem de início da fase seja propagada mais de uma vez.
+        private bool _isLevelStarted = false;//Condição que ajuda a evitar que a mensagem de início da fase seja propagada mais de uma vez.
 
         private void Awake()
         {
