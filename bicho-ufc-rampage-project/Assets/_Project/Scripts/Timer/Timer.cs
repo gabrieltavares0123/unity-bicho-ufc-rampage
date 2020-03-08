@@ -20,7 +20,7 @@
 
         private IDrawClock _timerDrawer;//Compoente que seta o relógio na UI.
         private ILevelStarter _levelStarter;//Componente que notifica quando a fase incia.
-        private ILevelFinisher _levelStopper;//Componente que notifica quando a fase acaba.
+        private ILevelFinisher _levelFinisher;//Componente que notifica quando a fase acaba.
 
         private void Awake()
         {
@@ -31,14 +31,14 @@
         {
             //Increve nos eventos que notificam o início e o fim da fase.
             LevelManager.OnStartLevel += StartClock;
-            LevelManager.OnStopLevel += StopClock;
+            LevelManager.OnFinishLevel += StopClock;
         }
 
         private void OnDisable()
         {
             //Remove dos eventos que notificam sobre o início e fim da fase.
             LevelManager.OnStartLevel -= StartClock;
-            LevelManager.OnStopLevel -= StopClock;
+            LevelManager.OnFinishLevel -= StopClock;
         }
 
         private void Update()

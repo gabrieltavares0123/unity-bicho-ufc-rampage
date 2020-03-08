@@ -8,7 +8,7 @@ namespace Magrathea.bufcr.Core
     /// Componente que propaga a mensagem de início e fim da fase para todos os interessados.
     /// 
     /// Todos os interessados no evento de início da fase estão inscritos no evento OnLevelStart.
-    /// Todos os interessados no evento de fim da fase estão inscritos no evento OnStopLevel.
+    /// Todos os interessados no evento de fim da fase estão inscritos no evento OnFinishLevel.
     /// 
     /// Esse componente recebe mensagens de outros componentes como LevelStarter e LevelStopper.
     /// Esses componentes conhecem as regras para que o jogo inicie e finalize respectivamente.
@@ -17,7 +17,7 @@ namespace Magrathea.bufcr.Core
     public class LevelManager : MonoBehaviour, ILevelStarter, ILevelFinisher
     {
         public static Action OnStartLevel;//Evento para os interessados no início da fase.
-        public static Action OnStopLevel;//Evento para os interessados no fim da fase.
+        public static Action OnFinishLevel;//Evento para os interessados no fim da fase.
 
         /// <summary>
         /// Notifica todos os interessados no início da fase.
@@ -30,9 +30,9 @@ namespace Magrathea.bufcr.Core
         /// <summary>
         /// Notifica todos os interessados no fim da fase.
         /// </summary>
-        public void StopLevel()
+        public void FinishLevel()
         {
-            OnStopLevel();
+            OnFinishLevel();
         }
     }
 }

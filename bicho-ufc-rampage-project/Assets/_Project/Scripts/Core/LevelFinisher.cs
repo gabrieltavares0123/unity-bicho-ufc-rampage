@@ -13,11 +13,11 @@ namespace Magrathea.bufcr.Core
     [RequireComponent(typeof(Collider2D))]
     public class LevelFinisher : MonoBehaviour
     {
-        private ILevelFinisher _levelStopper;//Responsável por propagar que a fase terminou para outros componentes.
+        private ILevelFinisher _levelFinisher;//Responsável por propagar que a fase terminou para outros componentes.
 
         private void Awake()
         {
-            _levelStopper = FindObjectOfType<LevelManager>();
+            _levelFinisher = FindObjectOfType<LevelManager>();
         }
 
         /// <summary>
@@ -28,7 +28,7 @@ namespace Magrathea.bufcr.Core
         {
             if (other.gameObject.CompareTag("Player"))
             {
-                _levelStopper.StopLevel();
+                _levelFinisher.FinishLevel();
             }
         }
     }
