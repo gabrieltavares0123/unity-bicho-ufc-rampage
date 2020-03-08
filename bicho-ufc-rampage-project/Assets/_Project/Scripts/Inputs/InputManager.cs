@@ -14,7 +14,9 @@ namespace Magrathea.BichoUFCRampage.Inputs
         private void Awake()
         {
 #if UNITY_EDITOR || UNITY_STANDALONE
-            Inputs = new PCInput();
+            GameObject inputGameObject = new GameObject("PC Input");
+            inputGameObject.transform.parent = gameObject.transform;
+            Inputs = inputGameObject.AddComponent<PCInput>();
 #elif UNITY_ANDROID
             GameObject inputGameObject = new GameObject("Android Input");
             inputGameObject.transform.parent = gameObject.transform;
