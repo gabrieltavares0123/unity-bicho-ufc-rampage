@@ -4,6 +4,6 @@ namespace Magrathea.bufcr.Core
 {
     internal interface ILevelFinisher
     {
-        void StopLevel();
+        void FinishLevel();
     }
 }
