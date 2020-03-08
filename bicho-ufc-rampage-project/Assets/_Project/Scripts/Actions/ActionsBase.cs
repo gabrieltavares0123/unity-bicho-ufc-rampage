@@ -1,9 +1,9 @@
-﻿using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
+﻿
 
 namespace Magrathea.bufcr.Actions
 {
+    using UnityEngine;
+
     [RequireComponent(typeof(Rigidbody2D))]
     public abstract class ActionsBase : MonoBehaviour
     {
