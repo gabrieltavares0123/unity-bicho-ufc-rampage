@@ -33,6 +33,11 @@ namespace Magrathea.BUFCR
             return AlternateKeys();
         }
 
+        public bool GetDashInput()
+        {
+            return Input.GetKeyDown(KeyCode.Backspace);
+        }
+
         // Alterna entre as teclas "a" e "d".
         private bool AlternateKeys()
         {

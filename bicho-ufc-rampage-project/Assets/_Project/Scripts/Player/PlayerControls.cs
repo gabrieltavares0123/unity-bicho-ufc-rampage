@@ -38,6 +38,12 @@ namespace Magrathea.BUFCR
                 {
                     _mover.DoAction();
                 }
+
+                // Realiza o dash do personagem.
+                if (_playerInputs.GetDashInput())
+                {
+
+                }
             }
         }
 
