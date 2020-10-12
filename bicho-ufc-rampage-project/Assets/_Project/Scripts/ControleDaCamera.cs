@@ -16,7 +16,7 @@ public class ControleDaCamera : MonoBehaviour {
 
 	void Awake () {
 		textoTempo.enabled = false;
-		textoScore.enabled = false;
+		//textoScore.enabled = false;
 	}
 
 	void Update () {

@@ -1,21 +1,31 @@
-﻿using System.Collections;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using UnityEngine;
 
 namespace Magrathea.BUFCR
 {
-    public class OnItemCollectedEvent : MonoBehaviour
+    [CreateAssetMenu(fileName = "OnItemCollectedEvent", menuName = "BUFCR/Events/OnItemCollectedEvent", order = 0)]
+    public class OnItemCollectedEvent : ScriptableObject
     {
-        // Start is called before the first frame update
-        void Start()
-        {
+        // Lista de ouvintes interessados no evento.
+        private List<IItemCollectedListener> listeners = new List<IItemCollectedListener>();
 
+        // Notifica todos os ouvintes do evento.
+        public void Raise(int value)
+        {
+            for (int i = listeners.Count - 1; i >= 0; i--)
+                listeners[i].OnItemCollected(value);
         }
 
-        // Update is called once per frame
-        void Update()
+        // Adiciona um novo ouvinte interessado no evento.
+        public void RegisterListener(IItemCollectedListener listener)
         {
+            listeners.Add(listener);
+        }
 
+        // Remove um ouvinte.
+        public void UnregisterListener(IItemCollectedListener listener)
+        {
+            listeners.Remove(listener);
         }
     }
 }

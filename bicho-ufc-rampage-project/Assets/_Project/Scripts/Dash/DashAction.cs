@@ -47,7 +47,7 @@ namespace Magrathea.BUFCR
         }
 
         // Evento disparado quando um novo item é coletado.
-        public void OnItemCollected()
+        public void OnItemCollected(int value)
         {
             _itemCount += 1;
         }

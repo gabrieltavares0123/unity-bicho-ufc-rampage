@@ -2,6 +2,6 @@
 {
     public interface IItemCollectedListener
     {
-        void OnItemCollected();
+        void OnItemCollected(int value);
     }
 }
