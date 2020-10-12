@@ -20,12 +20,12 @@ public class ControleDeTempo : MonoBehaviour {
 	}
 
 	void Update () {
-		if (!this.contar && (Input.GetKeyUp ("a") || Input.GetButtonUp ("d") || Input.GetButtonUp ("space"))) {
-			contar = true;
-		} 
-		if (!this.parar && this.contar) {
-			ContarTempo ();
-		}
+		//if (!this.contar && (Input.GetKeyUp ("a") || Input.GetButtonUp ("d") || Input.GetButtonUp ("space"))) {
+			//contar = true;
+		//} 
+		//if (!this.parar && this.contar) {
+		//	ContarTempo ();
+		//}
 	}
 
 	void ContarTempo () {

@@ -20,12 +20,12 @@ public class ControleDaCamera : MonoBehaviour {
 	}
 
 	void Update () {
-		if (!mover && (Input.GetKeyUp ("a") || Input.GetButtonUp ("d") || Input.GetButtonUp ("space"))) {
-			mover = true;
-			textoScore.enabled = true;
-			textoTempo.enabled = true;
-			panelComecar.gameObject.SetActive (false);
-		}
+		//if (!mover && (Input.GetKeyUp ("a") || Input.GetButtonUp ("d") || Input.GetButtonUp ("space"))) {
+		//	mover = true;
+		//	textoScore.enabled = true;
+		//	textoTempo.enabled = true;
+		//	panelComecar.gameObject.SetActive (false);
+		//}
 	}
 
 	void LateUpdate () {
