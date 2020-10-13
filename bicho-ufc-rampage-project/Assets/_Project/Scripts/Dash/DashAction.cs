@@ -3,53 +3,52 @@ using UnityEngine;
 
 namespace Magrathea.BUFCR
 {
-    public class DashAction : ActionBase, IItemCollectedListener
+    [RequireComponent(typeof(DashCounter))]
+    public class DashAction : ActionBase
     {
         [SerializeField] private float dashForce;
         [SerializeField] private float dashDuration;
 
-        private float dashTimer = 0;
-        private int _itemCount = 0;
+        private float _dashTimer = 0;
+        private IDashCounter _dashCounter;
 
-        private const int ITEMS_TO_DASH = 5;
+        protected override void Awake()
+        {
+            base.Awake();
+            _dashCounter = GetComponent<DashCounter>();
+        }
 
         public override void DoAction()
         {
             // Realiza o dash apenas se pelo menos 5 itens foram coletados.
-            if (_itemCount >= ITEMS_TO_DASH)
+            if (_dashCounter.CanDash())
             {
                 // Realiza o dash.
                 StopAllCoroutines();
-                StartCoroutine(Dashing(dashForce, dashDuration, _rigidbody2D));
+                StartCoroutine(Dashing());
                 // Zera o contador.
-                _itemCount = 0;
+                _dashCounter.RestartCounter();
             }
         }
 
         // Realiza o dash pelo tempo determinado.
-        private IEnumerator Dashing(float boostForce, float specialDuration, Rigidbody2D rigidbody2D)
+        private IEnumerator Dashing()
         {
             // Realiza o dash durante o tempo determinado.
-            while (dashTimer <= specialDuration)
+            while (_dashTimer <= dashDuration)
             {
-                rigidbody2D.velocity = Vector2.zero;
-                Vector2 boostVector = new Vector2(boostForce, 0);
-                float timeFactor = Time.deltaTime / specialDuration;
+                _rigidbody2D.velocity = Vector2.zero;
+                Vector2 boostVector = new Vector2(dashForce, 0);
+                float timeFactor = Time.deltaTime / dashDuration;
                 transform.Translate(boostVector * timeFactor);
-                dashTimer += timeFactor;
+                _dashTimer += timeFactor;
                 yield return null;
             }
 
             // Seta os valores padrão após o dash.
-            dashTimer = 0;
+            _dashTimer = 0;
             Vector2 endingVelocity = new Vector2(5, -1);
-            rigidbody2D.velocity = endingVelocity;
-        }
-
-        // Evento disparado quando um novo item é coletado.
-        public void OnItemCollected(int value)
-        {
-            _itemCount += 1;
+            _rigidbody2D.velocity = endingVelocity;
         }
     }
 }

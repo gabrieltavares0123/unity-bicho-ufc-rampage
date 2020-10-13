@@ -9,17 +9,20 @@ namespace Magrathea.BUFCR
     [RequireComponent(typeof(PlayerInputs))]
     [RequireComponent(typeof(MoveAction))]
     [RequireComponent(typeof(JumpAction))]
+    [RequireComponent(typeof(DashAction))]
     public class PlayerControls : MonoBehaviour
     {
         private IPlayerInputs _playerInputs;
         private ActionBase _mover;
         private ActionBase _jumper;
+        private ActionBase _dasher;
 
         private void Awake()
         {
             _playerInputs = GetComponent<PlayerInputs>();
             _mover = GetComponent<MoveAction>();
             _jumper = GetComponent<JumpAction>();
+            _dasher = GetComponent<DashAction>();
         }
 
         private void Update()
@@ -42,7 +45,7 @@ namespace Magrathea.BUFCR
                 // Realiza o dash do personagem.
                 if (_playerInputs.GetDashInput())
                 {
-
+                    _dasher.DoAction();
                 }
             }
         }
