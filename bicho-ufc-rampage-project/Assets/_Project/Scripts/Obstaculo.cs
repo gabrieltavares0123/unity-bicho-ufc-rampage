@@ -21,7 +21,7 @@ public class Obstaculo : MonoBehaviour {
 			Vector2 esquerda = new Vector2 (1.0f, 0.0f);
 			if (pontoDeContato == esquerda) {
 				ControleDoPersonagem cp = col.gameObject.GetComponent <ControleDoPersonagem> ();
-				cp.SendMessage ("Bater");
+				//cp.SendMessage ("Bater");
 			}
 		}
 	}
