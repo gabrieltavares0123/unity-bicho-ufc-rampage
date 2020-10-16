@@ -4,15 +4,20 @@ namespace Magrathea.BUFCR
 {
     public class PlayerInputs : MonoBehaviour, IPlayerInputs
     {
-        private bool _alternateKey = false;
+        [SerializeField] private OnPlayerFirstInputEvent onPlayerFirstInputEvent;
 
-        /// <summary>
-        /// Verifica se qualquer tecla foi pressionada.
-        /// </summary>
-        /// <returns>Verdadeira pra qualquer tecla do teclado pressionada.</returns>
-        public bool AnyKeyIsPressed()
+        private bool _alternateKey = false;
+        private bool _isPlayerFirstInputPressed = false;
+
+        private void Update()
         {
-            return Input.anyKeyDown;
+            // Verifica quando primeiro input ainda não foi registrado e se qualquer tecla foi pressionada.
+            if (!_isPlayerFirstInputPressed && Input.anyKeyDown)
+            {
+                _isPlayerFirstInputPressed = true;
+                // Notifica os ouvintes quando o primeiro input do jogador acontece.
+                onPlayerFirstInputEvent.Raise();
+            }
         }
 
         /// <summary>
