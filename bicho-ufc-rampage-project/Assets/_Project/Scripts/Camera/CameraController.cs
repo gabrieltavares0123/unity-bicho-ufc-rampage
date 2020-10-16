@@ -5,6 +5,7 @@ namespace Magrathea.BUFCR
     public class CameraController : MonoBehaviour, IPlayerFirstInputListener
     {
         [SerializeField] private OnPlayerFirstInputEvent onPlayerFirstInputEvent;
+        [SerializeField] private GameObject startLevelScreen;
         [SerializeField] private float cameraSpeed;
         [SerializeField] private Transform player;
 
@@ -13,6 +14,11 @@ namespace Magrathea.BUFCR
         private void OnEnable()
         {
             onPlayerFirstInputEvent.RegisterListener(this);
+        }
+
+        private void Awake()
+        {
+            startLevelScreen.SetActive(true);
         }
 
         private void OnDisable()
@@ -25,6 +31,12 @@ namespace Magrathea.BUFCR
             // Só move a câmera depois do primero input do jogador.
             if (_isPlayerFirstInputPressed)
             {
+                if(startLevelScreen.activeInHierarchy && _isPlayerFirstInputPressed)
+                {
+                    // Desativa a tela de início da fase depois do primeiro input do jogador.
+                    startLevelScreen.SetActive(false);
+                }
+
                 // Ajusta a câmera caso o personagem esteja à frente da câmera.
                 if (IsPLayerAheadCamera())
                 {
