@@ -1,6 +1,4 @@
-﻿using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
+﻿using UnityEngine;
 using UnityEngine.UI;
 
 public class ControleDaCamera : MonoBehaviour {
@@ -20,12 +18,12 @@ public class ControleDaCamera : MonoBehaviour {
 	}
 
 	void Update () {
-		//if (!mover && (Input.GetKeyUp ("a") || Input.GetButtonUp ("d") || Input.GetButtonUp ("space"))) {
-		//	mover = true;
-		//	textoScore.enabled = true;
-		//	textoTempo.enabled = true;
-		//	panelComecar.gameObject.SetActive (false);
-		//}
+		if (!mover && (Input.GetKeyUp ("a") || Input.GetButtonUp ("d") || Input.GetButtonUp ("space"))) {
+			mover = true;
+			textoScore.enabled = true;
+			textoTempo.enabled = true;
+			panelComecar.gameObject.SetActive (false);
+		}
 	}
 
 	void LateUpdate () {
@@ -44,3 +42,5 @@ public class ControleDaCamera : MonoBehaviour {
 		this.parar = true;
 	}
 }
+
+

@@ -10,12 +10,20 @@ namespace Magrathea.BUFCR
     [RequireComponent(typeof(MoveAction))]
     [RequireComponent(typeof(JumpAction))]
     [RequireComponent(typeof(DashAction))]
-    public class PlayerControls : MonoBehaviour
+    public class PlayerControls : MonoBehaviour, IPlayerFirstInputListener
     {
+        [SerializeField] private OnPlayerFirstInputEvent onPlayerFirstInputEvent;
+
         private IPlayerInputs _playerInputs;
         private ActionBase _mover;
         private ActionBase _jumper;
         private ActionBase _dasher;
+        private bool _isFirstPlayerInputGiven = false;
+
+        private void OnEnable()
+        {
+            onPlayerFirstInputEvent.RegisterListener(this);
+        }
 
         private void Awake()
         {
@@ -25,10 +33,15 @@ namespace Magrathea.BUFCR
             _dasher = GetComponent<DashAction>();
         }
 
+        private void OnDisable()
+        {
+            onPlayerFirstInputEvent.UnregisterListener(this);
+        }
+
         private void Update()
         {
             // Verifica os inputs do jogador e executa as ações possívei de acordo.
-            if (_playerInputs.AnyKeyIsPressed())
+            if (_isFirstPlayerInputGiven)
             {
                 // Realiza o salto do personagem.
                 if (_playerInputs.GetJumpInput())
@@ -50,5 +63,10 @@ namespace Magrathea.BUFCR
             }
         }
 
+
+        public void OnPlayerFirstInput()
+        {
+            _isFirstPlayerInputGiven = true;
+        }
     }
 }
